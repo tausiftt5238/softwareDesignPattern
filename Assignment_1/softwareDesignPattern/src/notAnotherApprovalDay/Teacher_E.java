@@ -1,12 +1,13 @@
 package notAnotherApprovalDay;
 
-public class Teacher_C extends Teacher{
+public class Teacher_E extends Teacher{
 	
-	public Teacher_C(String name){
+	public Teacher_E(String name){
 		super(name);
 	}
 	
 	public void givePermission(Student std){
-		std.setPermission(1);
+		std.setPermission(2);
 	}
+	
 }

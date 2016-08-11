@@ -10,7 +10,6 @@ import java.util.concurrent.ExecutorService;
 
 public class Scheduler {
 	public Scheduler(ExecutorService executor){
-		
 		Timer timer = new Timer(true);
 		BufferedReader br = null;
 		Scanner s = null;
@@ -28,16 +27,17 @@ public class Scheduler {
 				s = new Scanner(tempLine);
 				int time = s.nextInt();
 				if(maximumWaitTime < time) maximumWaitTime = time;
-				while(s.hasNextInt()){
+				while(s.hasNextInt()){	
+					Main.start = true;
 					Main.countStudent++;
-					timer.schedule(new myTimerTask(s.next(), executor), time * 1000);
+					timer.schedule(new myTimerTask(s.next(), executor), time * 1000 );
 				}
 			}
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 		try {
-			Thread.sleep(maximumWaitTime * 1000);
+			Thread.sleep(maximumWaitTime * 1000 + 1000);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
